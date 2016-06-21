@@ -9,7 +9,7 @@ development:
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
-        - localhost:27017
+        - db:27017
       options:
         # Change the default write concern. (default = { w: 1 })
         # write:
@@ -129,7 +129,7 @@ test:
     default:
       database: locomotiveapp_test
       hosts:
-        - localhost:27017
+        - db:27017
       options:
         max_pool_size: 1
 
@@ -138,6 +138,6 @@ production:
     default:
       database: locomotiveapp_production
       hosts:
-        - localhost:27017
+        - db:27017
       options:
         max_pool_size: 1
