@@ -1,0 +1,15 @@
+services:
+  engine:
+    build: engine/.
+    ports:
+     - "3000:3000"
+    links:
+     - db
+    volumes:
+     - ./assets:/usr/src/app/public/assets
+     - ./log:/usr/src/app/log
+  db:
+    image: mongo:3
+    volumes:
+     - ./data:/data/db
+version: '2'

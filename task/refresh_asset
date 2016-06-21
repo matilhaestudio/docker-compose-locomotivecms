@@ -1,0 +1,4 @@
+echo "clean and generate asset"
+cd ../
+rm -rf assets/*
+docker-compose run engine rake assets:precompile
