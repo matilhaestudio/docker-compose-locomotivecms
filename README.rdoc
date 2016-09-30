@@ -1,28 +1,18 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a fork from https://github.com/akretion/docker-compose-locomotivecms
 
-Things you may want to cover:
+#How to use it:
 
-* Ruby version
+1. Install docker daemon from Docker site
+2. Install docker toolbox from Docker site
+3. Run docker daemon
+4. Run on termina: docker-compose build
+Run on terminal: docker-compose up 
 
-* System dependencies
+#To refresh you gem file
+docker-compose run bundle
 
-* Configuration
+#How to generate your content types sample
+bundle exec wagon generate content_type projects name:string client:string description:text image:file
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
