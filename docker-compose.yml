@@ -10,17 +10,18 @@ services:
      - ./log:/usr/src/app/log
     volumes_from:
      - bundle
-  # --- Add this to your fig.yml or docker-compose.yml file ---
-  bundle:
-    # 'image' will vary depending on your docker-compose 
-    # project name. You may need to run `docker-compose build web`
-    # before this works.
-    image: engine
-    command: echo I'm a little data container, short and stout...
-    volumes:
-     - /bundle
   db:
     image: mongo:3
     volumes:
      - ./data:/data/db
+# --- Add this to your fig.yml or docker-compose.yml file ---
+bundle:
+# 'image' will vary depending on your docker-compose 
+# project name. You may need to run `docker-compose build web`
+# before this works.
+  image: engine
+  command: echo I'm a little data container, short and stout...
+  volumes:
+    - /bundle
 version: '2'
+
