@@ -1,6 +1,7 @@
 services:
   engine:
     build: engine/.
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     ports:
      - "3000:3000"
     links:
@@ -8,20 +9,9 @@ services:
     volumes:
      - ./assets:/usr/src/app/public/assets
      - ./log:/usr/src/app/log
-    volumes_from:
-     - bundle
   db:
     image: mongo:3
     volumes:
      - ./data:/data/db
-# --- Add this to your fig.yml or docker-compose.yml file ---
-bundle:
-# 'image' will vary depending on your docker-compose 
-# project name. You may need to run `docker-compose build web`
-# before this works.
-  image: engine
-  command: echo I'm a little data container, short and stout...
-  volumes:
-    - /bundle
 version: '2'
 

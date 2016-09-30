@@ -22,7 +22,7 @@ RUN apt-get update -qq && apt-get install -y build-essential
 #RUN apt-get install -y libqt4-webkit libqt4-dev xvfb
 
 # for a JS runtime
-#RUN apt-get install -y nodejs
+RUN apt-get install -y nodejs
 
 ENV APP_HOME /myapp
 RUN mkdir $APP_HOME
@@ -35,13 +35,15 @@ ENV BUNDLE_GEMFILE=$APP_HOME/Gemfile \
   BUNDLE_JOBS=2 \
   BUNDLE_PATH=/bundle
 
-RUN bundle install
+#RUN bundle install
 
 ADD . $APP_HOME
 
-#RUN wagon auth
-#RUN wagon init devenv -t bootstrap
-#RUN bundle install
-#RUN bundle exec wagon generate content_type projects name:string client:string description:text image:file
-#RUN bundle exec wagon serve 
+RUN gem install locomotivecms_wagon
+
+RUN wagon auth
+RUN wagon init devenv -t bootstrap
+RUN bundle install
+RUN bundle exec wagon generate content_type projects name:string client:string description:text image:file
+RUN bundle exec wagon serve 
 
